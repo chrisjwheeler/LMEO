@@ -1,0 +1,13 @@
+# Ignore pycache
+__pycache__/
+.pyc
+
+# Ignore logs
+logs/
+
+# Ignore databases
+*.sqlite3
+*.db
+
+# Ignore env files
+.env
