@@ -1,0 +1,9 @@
+Exeter: ['Abode', 'ABode'] 'Vin Mercure Holiday Queens Gate Devon Magdalen South Globe Rougemont Buckerel'
+Bristol: ['Marriott','Gainsborough','Hilton','Mercure', 'arbour' ,'Radisson', 'Avon', 'DoubleTree', 'Berkeley', 'ibis', 'Future','ztec', 'gabel',  ]
+London: 'Savoy Langham Ritz Clarid hangri Dorchest Shard Rose Royal '
+Manchester: 'Gotham rincipal idland adisson ilton' ['Meli', 'inn', 'INN', 'Inn']
+Newcastle: 'Crowne Vin County Dene Sandman Indigo Hilton Jury'
+Brighton: 'Drake Vin Jurys Artist Queens Grand TheBrighton'
+Birmingham: 'ACHotel BirminghamCityCentre Vin Cube dgbaston Grand Staying Indigo'
+Leeds: 'Dakota DoubleTree Malmaison Marrio Quebecs Radisson Queen Thorpe Park bisSt Cosmo'
+Liverpool: 'Double HopeS James Pullman Liner Titanic Indigo Richmond Malmaison'
