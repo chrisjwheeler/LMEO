@@ -19,12 +19,12 @@ class LMEO:
         self.anthropic_client = anthropic.Anthropic(api_key=anthropic_api_key)
         self.model = model
   
-    def order_set(self, message_content: str, message_identifier: str = None, times: int = 100, num_ranks=5, dump=True):
+    def order_set(self, message_content: str, message_identifier: str = None, times: int = 100, num_ranks=5, dump=True, prefix = 'ranks'):
         ''' Generate multiple rank sets. '''
 
-        if os.path.exists(fr'.\pickles\ranks_{message_identifier}.pkl'):
+        if os.path.exists(fr'.\pickles\{prefix}_{message_identifier}.pkl'):
             print("Loading Previously Generated Ranks.")
-            with open(fr'.\pickles\ranks_{message_identifier}.pkl', 'rb') as file:
+            with open(fr'.\pickles\{prefix}_{message_identifier}.pkl', 'rb') as file:
                 return pickle.load(file)
         
         message = [{"role": "user", "content": message_content}]
@@ -71,7 +71,7 @@ class LMEO:
             raise e
 
         if dump:
-            with open(fr'.\pickles\ranks_{message_identifier}.pkl', 'wb') as file:
+            with open(fr'.\pickles\{prefix}_{message_identifier}.pkl', 'wb') as file:
                 pickle.dump(ranks, file)
         
         return ranks

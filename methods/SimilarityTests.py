@@ -278,7 +278,7 @@ class SimilarityTests:
     @staticmethod
     def hotel_target_flag(hotel, target_word):
             if isinstance(target_word, list):
-                return any(word in hotel for word in target_word)
+                return any((word in hotel) for word in target_word)
             else:
                 return target_word in hotel
             
@@ -381,9 +381,9 @@ class SimilarityTests:
 
     def order_top_1(self, pickle_id, prompt, times = 100, dump=True) -> list:
 
-        if os.path.exists(fr'.\pickles\top1_{pickle_id}.pkl'):
+        if os.path.exists(fr'.\pickles\top_1_{pickle_id}.pkl'):
             print("Loading Previously Generated Ranks.")
-            with open(fr'.\pickles\top1_{pickle_id}.pkl', 'rb') as file:
+            with open(fr'.\pickles\top_1_{pickle_id}.pkl', 'rb') as file:
                 return pickle.load(file)
 
         LLM_payload = [{"role": "user", "content": prompt}]
@@ -415,7 +415,7 @@ class SimilarityTests:
         all_responses = [[message_obj.message.content] for message_obj in choices_list]
 
         if dump:
-            with open(fr'.\pickles\top1_{pickle_id}.pkl', 'wb') as file:
+            with open(fr'.\pickles\top_1_{pickle_id}.pkl', 'wb') as file:
                 pickle.dump(all_responses, file)
 
         return all_responses  
@@ -453,4 +453,34 @@ class SimilarityTests:
         MM_fitted_params = sorted(zip(MM_fitted_params, num_to_id.values()), key=lambda x: x[0], reverse=True)
         
         return MM_fitted_params
+    
+    def calculate_sorted_dict(self, ranks, target_words, other_flag=1):
+        ''' Takes raw ranks and applies the simplist scoring function to it.'''
+
+        ranks = self.rank_to_num(ranks, target_words, other_flag)[0]
+        final_scores_dict = {}
+        
+        num_to_id, _ = self.get_conversions(target_words, 1)
+        no_appearence_penalty = len(num_to_id)
+
+        for num_rank in ranks:
+            appeared_unis = set()
+
+            for place, uni in enumerate(num_rank):
+                chosen_uni = num_to_id[uni]
+
+                # Adding the score
+                previous_count = final_scores_dict.get(chosen_uni, 0)
+                final_scores_dict[chosen_uni] = previous_count + place
+
+                appeared_unis.add(uni)
+
+            # Now we will add the penalty for any uni that didnt appear by using the set difference
+            not_appeared = set(range(len(num_to_id))) - appeared_unis
+            for x in not_appeared:
+                previous_count = final_scores_dict.get(num_to_id[x], 0)
+                final_scores_dict[num_to_id[x]] = previous_count + no_appearence_penalty
+
+        sorted_dict = dict(sorted(final_scores_dict.items(), key=lambda item: item[1]))
+        return sorted_dict
     

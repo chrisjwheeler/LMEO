@@ -1,0 +1,30 @@
+Collecting tokenizers
+  Downloading tokenizers-0.20.1-cp312-none-win_amd64.whl.metadata (6.9 kB)
+Collecting huggingface-hub<1.0,>=0.16.4 (from tokenizers)
+  Downloading huggingface_hub-0.25.2-py3-none-any.whl.metadata (13 kB)
+Collecting filelock (from huggingface-hub<1.0,>=0.16.4->tokenizers)
+  Downloading filelock-3.16.1-py3-none-any.whl.metadata (2.9 kB)
+Collecting fsspec>=2023.5.0 (from huggingface-hub<1.0,>=0.16.4->tokenizers)
+  Downloading fsspec-2024.9.0-py3-none-any.whl.metadata (11 kB)
+Requirement already satisfied: packaging>=20.9 in c:\users\chris\miniconda3\lib\site-packages (from huggingface-hub<1.0,>=0.16.4->tokenizers) (23.1)
+Collecting pyyaml>=5.1 (from huggingface-hub<1.0,>=0.16.4->tokenizers)
+  Downloading PyYAML-6.0.2-cp312-cp312-win_amd64.whl.metadata (2.1 kB)
+Requirement already satisfied: requests in c:\users\chris\miniconda3\lib\site-packages (from huggingface-hub<1.0,>=0.16.4->tokenizers) (2.31.0)
+Requirement already satisfied: tqdm>=4.42.1 in c:\users\chris\miniconda3\lib\site-packages (from huggingface-hub<1.0,>=0.16.4->tokenizers) (4.65.0)
+Requirement already satisfied: typing-extensions>=3.7.4.3 in c:\users\chris\miniconda3\lib\site-packages (from huggingface-hub<1.0,>=0.16.4->tokenizers) (4.12.2)
+Requirement already satisfied: colorama in c:\users\chris\miniconda3\lib\site-packages (from tqdm>=4.42.1->huggingface-hub<1.0,>=0.16.4->tokenizers) (0.4.6)
+Requirement already satisfied: charset-normalizer<4,>=2 in c:\users\chris\miniconda3\lib\site-packages (from requests->huggingface-hub<1.0,>=0.16.4->tokenizers) (2.0.4)
+Requirement already satisfied: idna<4,>=2.5 in c:\users\chris\miniconda3\lib\site-packages (from requests->huggingface-hub<1.0,>=0.16.4->tokenizers) (3.4)
+Requirement already satisfied: urllib3<3,>=1.21.1 in c:\users\chris\miniconda3\lib\site-packages (from requests->huggingface-hub<1.0,>=0.16.4->tokenizers) (2.1.0)
+Requirement already satisfied: certifi>=2017.4.17 in c:\users\chris\miniconda3\lib\site-packages (from requests->huggingface-hub<1.0,>=0.16.4->tokenizers) (2024.2.2)
+Downloading tokenizers-0.20.1-cp312-none-win_amd64.whl (2.4 MB)
+   ---------------------------------------- 2.4/2.4 MB 7.6 MB/s eta 0:00:00
+Downloading huggingface_hub-0.25.2-py3-none-any.whl (436 kB)
+   ---------------------------------------- 436.6/436.6 kB 9.1 MB/s eta 0:00:00
+Downloading fsspec-2024.9.0-py3-none-any.whl (179 kB)
+   ---------------------------------------- 179.3/179.3 kB 5.5 MB/s eta 0:00:00
+Downloading PyYAML-6.0.2-cp312-cp312-win_amd64.whl (156 kB)
+   ---------------------------------------- 156.3/156.3 kB 4.6 MB/s eta 0:00:00
+Downloading filelock-3.16.1-py3-none-any.whl (16 kB)
+Installing collected packages: pyyaml, fsspec, filelock, huggingface-hub, tokenizers
+Successfully installed filelock-3.16.1 fsspec-2024.9.0 huggingface-hub-0.25.2 pyyaml-6.0.2 tokenizers-0.20.1
